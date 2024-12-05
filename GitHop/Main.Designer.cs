@@ -91,6 +91,7 @@
             btnRefresh.TabIndex = 5;
             btnRefresh.Text = "Refresh";
             btnRefresh.UseVisualStyleBackColor = true;
+            btnRefresh.Click += btnRefresh_Click;
             // 
             // Main
             // 
@@ -107,6 +108,7 @@
             Name = "Main";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "GitHop";
+            Load += Main_Load;
             ResumeLayout(false);
         }
 

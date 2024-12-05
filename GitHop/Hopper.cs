@@ -50,7 +50,7 @@ namespace GitHop
         public static async Task<string> GetCurrentBranchNameAsync()
         {
             // Initialize result
-            string currentBranch = "";
+            string currentBranch = string.Empty;
             // Define process info
             var startInfo = new ProcessStartInfo
             {
@@ -69,7 +69,7 @@ namespace GitHop
                 process.Start();
                 // Obtain result from process output
                 var output = await process.StandardOutput.ReadToEndAsync();
-                // Wait for process to exit with timeout
+                // Wait for process to exit
                 await process.WaitForExitAsync();
                 // Get branches info
                 var branchList = output.Split(['\n', '\r'], StringSplitOptions.RemoveEmptyEntries);
@@ -89,6 +89,41 @@ namespace GitHop
             }
             // After all, return the current branch name
             return currentBranch;
+        }
+
+        public static async Task<string> SwitchBranchAsync(string branchName, bool forceCheckout = false)
+        {
+            // Initialize result message
+            string resultMessage = string.Empty;
+            // Define process info
+            var startInfo = new ProcessStartInfo
+            {
+                FileName = "git",
+                Arguments = $"checkout {branchName}",
+                RedirectStandardOutput = true,
+                UseShellExecute = false,
+                CreateNoWindow = true
+            };
+            // If force checkout is specified ...
+            if (forceCheckout)
+            {
+                // ... then update argument string
+                startInfo.Arguments = $"checkout --force {branchName}";
+            }
+            // Initialize process
+            using (var process = new Process())
+            {
+                // Initial process properties
+                process.StartInfo = startInfo;
+                // Start process
+                process.Start();
+                // Obtain result from process output
+                resultMessage = await process.StandardOutput.ReadToEndAsync();
+                // Wait for process to exit
+                await process.WaitForExitAsync();
+            }
+            // After all, return result message
+            return resultMessage;
         }
     }
 }
