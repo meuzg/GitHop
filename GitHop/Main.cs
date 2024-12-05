@@ -39,9 +39,9 @@ namespace GitHop
             {
                 // Then select first index as default
                 cbBranches.SelectedIndex = 0;
+                // And re-enable switch button
+                btnSwitch.Enabled = true;
             }
-            // Ater all, re-enable switch button
-            btnSwitch.Enabled = true;
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
