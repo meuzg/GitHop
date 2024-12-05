@@ -28,22 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            lbcurrent = new Label();
             lbCurrentBranch = new Label();
-            label3 = new Label();
+            lbSwitchTo = new Label();
             cbBranches = new ComboBox();
             btnSwitch = new Button();
+            btnRefresh = new Button();
             SuspendLayout();
             // 
-            // label1
+            // lbcurrent
             // 
-            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label1.Location = new Point(12, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(69, 23);
-            label1.TabIndex = 0;
-            label1.Text = "Current:";
-            label1.TextAlign = ContentAlignment.MiddleRight;
+            lbcurrent.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lbcurrent.Location = new Point(12, 9);
+            lbcurrent.Name = "lbcurrent";
+            lbcurrent.Size = new Size(69, 23);
+            lbcurrent.TabIndex = 0;
+            lbcurrent.Text = "Current:";
+            lbcurrent.TextAlign = ContentAlignment.MiddleRight;
             // 
             // lbCurrentBranch
             // 
@@ -54,15 +55,15 @@
             lbCurrentBranch.Text = "---";
             lbCurrentBranch.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // label3
+            // lbSwitchTo
             // 
-            label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            label3.Location = new Point(12, 35);
-            label3.Name = "label3";
-            label3.Size = new Size(69, 23);
-            label3.TabIndex = 2;
-            label3.Text = "Switch to:";
-            label3.TextAlign = ContentAlignment.MiddleRight;
+            lbSwitchTo.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lbSwitchTo.Location = new Point(12, 35);
+            lbSwitchTo.Name = "lbSwitchTo";
+            lbSwitchTo.Size = new Size(69, 23);
+            lbSwitchTo.TabIndex = 2;
+            lbSwitchTo.Text = "Switch to:";
+            lbSwitchTo.TextAlign = ContentAlignment.MiddleRight;
             // 
             // cbBranches
             // 
@@ -82,15 +83,25 @@
             btnSwitch.Text = "Switch";
             btnSwitch.UseVisualStyleBackColor = true;
             // 
+            // btnRefresh
+            // 
+            btnRefresh.Location = new Point(224, 67);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(71, 32);
+            btnRefresh.TabIndex = 5;
+            btnRefresh.Text = "Refresh";
+            btnRefresh.UseVisualStyleBackColor = true;
+            // 
             // Main
             // 
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(384, 111);
+            Controls.Add(btnRefresh);
             Controls.Add(btnSwitch);
             Controls.Add(cbBranches);
-            Controls.Add(label3);
+            Controls.Add(lbSwitchTo);
             Controls.Add(lbCurrentBranch);
-            Controls.Add(label1);
+            Controls.Add(lbcurrent);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "Main";
@@ -101,10 +112,11 @@
 
         #endregion
 
-        private Label label1;
+        private Label lbcurrent;
         private Label lbCurrentBranch;
-        private Label label3;
+        private Label lbSwitchTo;
         private ComboBox cbBranches;
         private Button btnSwitch;
+        private Button btnRefresh;
     }
 }
