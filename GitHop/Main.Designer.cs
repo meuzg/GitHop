@@ -34,6 +34,7 @@
             cbBranches = new ComboBox();
             btnSwitch = new Button();
             btnRefresh = new Button();
+            chkForceCheckout = new CheckBox();
             SuspendLayout();
             // 
             // lbcurrent
@@ -82,6 +83,7 @@
             btnSwitch.TabIndex = 4;
             btnSwitch.Text = "Switch";
             btnSwitch.UseVisualStyleBackColor = true;
+            btnSwitch.Click += btnSwitch_Click;
             // 
             // btnRefresh
             // 
@@ -93,10 +95,21 @@
             btnRefresh.UseVisualStyleBackColor = true;
             btnRefresh.Click += btnRefresh_Click;
             // 
+            // chkForceCheckout
+            // 
+            chkForceCheckout.AutoSize = true;
+            chkForceCheckout.Location = new Point(87, 73);
+            chkForceCheckout.Name = "chkForceCheckout";
+            chkForceCheckout.Size = new Size(107, 19);
+            chkForceCheckout.TabIndex = 6;
+            chkForceCheckout.Text = "Force checkout";
+            chkForceCheckout.UseVisualStyleBackColor = true;
+            // 
             // Main
             // 
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(384, 111);
+            Controls.Add(chkForceCheckout);
             Controls.Add(btnRefresh);
             Controls.Add(btnSwitch);
             Controls.Add(cbBranches);
@@ -110,6 +123,7 @@
             Text = "GitHop";
             Load += Main_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -120,5 +134,6 @@
         private ComboBox cbBranches;
         private Button btnSwitch;
         private Button btnRefresh;
+        private CheckBox chkForceCheckout;
     }
 }
